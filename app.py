@@ -14,6 +14,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 class_names = ["pizza", "steak", "sushi"]
 
+model = model.to(device)
 checkpoint = torch.load(
     "models/food101_model.pth",
     map_location=device
