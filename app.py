@@ -1,12 +1,12 @@
-import streamlit as st
-import torch
-from torchvision import transforms
-from PIL import Image
-from timeit import default_timer as timer
-
-# -----------------------------
-# Configuration
-# -----------------------------
+try:
+    import streamlit as st
+    import torch
+    from torchvision import transforms
+    from PIL import Image
+    from timeit import default_timer as timer
+except ModuleNotFoundError:
+    !python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+    !pip install streamlit 
 
 st.set_page_config(
     page_title="FoodVision",
@@ -17,20 +17,6 @@ st.set_page_config(
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 class_names = ["pizza", "steak", "sushi"]
-
-# -----------------------------
-# Model
-# -----------------------------
-
-# Your existing model definition should be here.
-# Example:
-#
-# model = create_model(...)
-#
-# Make sure the architecture is EXACTLY the same
-# as the one used during training.
-
-model = create_model()  # Replace with your model creation code
 
 checkpoint = torch.load(
     "models/food101_model.pth",
