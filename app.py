@@ -1,12 +1,8 @@
-try:
-    import streamlit as st
-    import torch
-    from torchvision import transforms
-    from PIL import Image
-    from timeit import default_timer as timer
-except ModuleNotFoundError:
-    !python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
-    !pip install streamlit 
+import streamlit as st
+import torch
+from torchvision import transforms
+from PIL import Image
+from timeit import default_timer as timer
 
 st.set_page_config(
     page_title="FoodVision",
