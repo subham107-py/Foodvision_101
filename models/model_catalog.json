@@ -22,7 +22,7 @@
     "architecture": "ConvNeXt Base",
     "checkpoint": "models/food101_model_convnextbase_base_freeze.pth",
     "classes": null
-  }
+  },
   {
     "id": "effnetb4_finetune",
     "name": "Effnetb4",
