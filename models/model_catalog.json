@@ -1,0 +1,26 @@
+[
+  {
+    "id": "convnext-tiny-full-finetune",
+    "name": "ConvNeXt Tiny · Full fine-tune",
+    "description": "ConvNeXt Tiny fine-tuned across the Food-101 dataset.",
+    "architecture": "ConvNeXt Tiny",
+    "checkpoint": "models/food101_model_convnexttiny_fullfinetune.pth",
+    "classes": null
+  },
+  {
+    "id": "convnext-tiny-base-freeze",
+    "name": "ConvNeXt Tiny · Frozen backbone",
+    "description": "ConvNeXt Tiny trained with its feature backbone frozen.",
+    "architecture": "ConvNeXt Tiny",
+    "checkpoint": "models/food101_model_convnexttiny_basefreeze.pth",
+    "classes": null
+  },
+  {
+    "id": "convnext-base-frozen",
+    "name": "ConvNeXt Base · Frozen backbone",
+    "description": "ConvNeXt Base trained with its feature backbone frozen.",
+    "architecture": "ConvNeXt Base",
+    "checkpoint": "models/food101_model_convnextbase_base_freeze.pth",
+    "classes": null
+  }
+]
