@@ -17,10 +17,14 @@ CLASSES_PATH = ROOT_DIR / "data" / "food-101" / "meta" / "classes.txt"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 ARCHITECTURES: dict[str, Any] = {
+    "EfficientNet-B4": torchvision.models.efficientnet_b4,
+    "Effnetb4": torchvision.models.efficientnet_b4,
     "ConvNeXt Tiny": torchvision.models.convnext_tiny,
     "ConvNeXt Base": torchvision.models.convnext_base,
 }
 WEIGHTS = {
+    "EfficientNet-B4": torchvision.models.EfficientNet_B4_Weights.DEFAULT,
+    "Effnetb4": torchvision.models.EfficientNet_B4_Weights.DEFAULT,
     "ConvNeXt Tiny": torchvision.models.ConvNeXt_Tiny_Weights.DEFAULT,
     "ConvNeXt Base": torchvision.models.ConvNeXt_Base_Weights.DEFAULT,
 }

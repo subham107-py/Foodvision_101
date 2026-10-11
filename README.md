@@ -96,13 +96,24 @@ Open that URL in a browser, upload a food image, and run the prediction.
 
 ## Model details
 
-The application creates an EfficientNet-B4 backbone with ImageNet weights, replaces its classifier with a 101-class output layer, and loads the fine-tuned weights from:
+The model picker reads entries from `models/model_catalog.json`. A catalog entry appears in the website when its checkpoint exists and its architecture is supported by the app. Checkpoint paths are relative to the repository root.
 
-```text
-models/food101_model.pth
+Supported architecture values are `EfficientNet-B4` (also accepts the existing `Effnetb4` spelling), `ConvNeXt Tiny`, and `ConvNeXt Base`. To register another model architecture, add its model factory and pretrained transforms to the `ARCHITECTURES` and `WEIGHTS` dictionaries in `app.py`.
+
+Example entry:
+
+```json
+{
+  "id": "my-model",
+  "name": "My Food Model",
+  "description": "A short description of the model.",
+  "architecture": "EfficientNet-B4",
+  "checkpoint": "models/my_food_model.pth",
+  "classes": null
+}
 ```
 
-The model is switched to evaluation mode before inference. Input images are converted to RGB and processed with the transforms associated with the EfficientNet-B4 pretrained weights.
+Set `classes` to `null` to use the Food-101 labels from `data/food-101/meta/classes.txt`, or provide an ordered list of class names matching the checkpoint's output order. The model is switched to evaluation mode before inference. Input images are converted to RGB and processed with the transforms associated with the selected architecture's pretrained weights.
 
 The returned result is a dictionary containing the five highest-probability Food-101 classes, ordered from most likely to least likely.
 
